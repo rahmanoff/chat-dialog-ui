@@ -37,7 +37,7 @@ export const Main = () => {
         <textarea className="main__textarea" onChange={onTextAreaChange} value={currentMessage} />
       </div>
       <div className="main__plate">
-        <button>Send Message</button>
+        <button className="main__button">Send Message</button>
       </div>
     </div>
   );
