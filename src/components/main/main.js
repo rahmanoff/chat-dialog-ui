@@ -22,6 +22,17 @@ export const Main = () => {
   const [messages, setMessages] = useState(INITIAL_MESSAGES);
   const [currentMessage, setCurrentMessage] = useState('');
 
+  const onMessageReply = () => {
+    setTimeout(
+      () =>
+        setMessages((prevState) => [
+          ...prevState,
+          { text: 'This is Dummy Text!', isCurrentUser: false },
+        ]),
+      1000,
+    );
+  };
+
   const onTextAreaChange = ({ target: { value } }) => {
     setCurrentMessage(value);
   };
@@ -30,6 +41,7 @@ export const Main = () => {
     if (currentMessage.trim()) {
       setMessages([...messages, { text: currentMessage, isCurrentUser: true }]);
       setCurrentMessage('');
+      onMessageReply();
     }
   };
 
