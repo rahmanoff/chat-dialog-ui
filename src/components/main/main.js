@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Message } from './message/message';
 
 import './main.css';
 
@@ -13,7 +14,7 @@ export const Main = () => {
   return (
     <div className="main">
       {messages.map(({ text, isCurrentUser }, i) => (
-        <div key={i}>{text}</div>
+        <Message key={i} text={text} isCurrentUser={isCurrentUser} />
       ))}
     </div>
   );
