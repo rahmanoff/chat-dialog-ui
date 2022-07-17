@@ -26,6 +26,13 @@ export const Main = () => {
     setCurrentMessage(value);
   };
 
+  const onButtonClick = () => {
+    if (currentMessage.trim()) {
+      setMessages([...messages, { text: currentMessage, isCurrentUser: true }]);
+      setCurrentMessage('');
+    }
+  };
+
   return (
     <div className="main">
       <div className="main__messages">
@@ -37,7 +44,9 @@ export const Main = () => {
         <textarea className="main__textarea" onChange={onTextAreaChange} value={currentMessage} />
       </div>
       <div className="main__plate">
-        <button className="main__button">Send Message</button>
+        <button className="main__button" onClick={onButtonClick}>
+          Send Message
+        </button>
       </div>
     </div>
   );
