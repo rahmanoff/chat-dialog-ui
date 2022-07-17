@@ -1,7 +1,12 @@
 import React from 'react';
+import { Header } from './header/header';
+import { Main } from './main/main';
 
-import styles from './app.css';
+import './app.css';
 
-export const App = () => {
-  return <div className="app">First Div</div>;
-};
+export const App = () => (
+  <div className="app">
+    <Header />
+    <Main />
+  </div>
+);
