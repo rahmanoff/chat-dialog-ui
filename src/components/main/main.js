@@ -20,6 +20,12 @@ export const INITIAL_MESSAGES = [
 
 export const Main = () => {
   const [messages, setMessages] = useState(INITIAL_MESSAGES);
+  const [currentMessage, setCurrentMessage] = useState('');
+
+  const onTextAreaChange = ({ target: { value } }) => {
+    setCurrentMessage(value);
+  };
+
   return (
     <div className="main">
       <div className="main__messages">
@@ -28,7 +34,7 @@ export const Main = () => {
         ))}
       </div>
       <div className="main__plate">
-        <textarea />
+        <textarea className="main__textarea" onChange={onTextAreaChange} value={currentMessage} />
       </div>
       <div className="main__plate">
         <button>Send Message</button>
