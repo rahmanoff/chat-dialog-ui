@@ -1,36 +1,16 @@
 import React, { useState } from 'react';
 import { Message } from './message/message';
+import { INITIAL_MESSAGES } from './constants';
+import { getRandomMessage } from './utils/getRandomMessage';
 
 import './main.css';
-
-export const INITIAL_MESSAGES = [
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Message 1',
-    isCurrentUser: true,
-  },
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Message 2',
-    isCurrentUser: false,
-  },
-  {
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Message 3',
-    isCurrentUser: true,
-  },
-];
 
 export const Main = () => {
   const [messages, setMessages] = useState(INITIAL_MESSAGES);
   const [currentMessage, setCurrentMessage] = useState('');
 
   const onMessageReply = () => {
-    setTimeout(
-      () =>
-        setMessages((prevState) => [
-          ...prevState,
-          { text: 'This is Dummy Text!', isCurrentUser: false },
-        ]),
-      1000,
-    );
+    setTimeout(() => setMessages((prevState) => [...prevState, getRandomMessage()]), 1000);
   };
 
   const onTextAreaChange = ({ target: { value } }) => {
